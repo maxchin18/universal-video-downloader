@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>萬能影片下載器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ── header ── -->
+  <header class="hero">
+    <div class="clock" id="clock" aria-hidden="true">
+      <span class="num n12">12</span>
+      <span class="num n3">03</span>
+      <span class="num n6">06</span>
+      <span class="num n9">09</span>
+      <div class="hand hour" id="hHour"></div>
+      <div class="hand min" id="hMin"></div>
+      <div class="hand sec" id="hSec"></div>
+      <div class="cap"></div>
+    </div>
+    <div class="hero-text">
+      <h1>Hello, Video.</h1>
+      <p class="tagline">貼上連結，把喜歡的影片帶走。</p>
+      <p class="platforms">YouTube · Instagram · Facebook · X · TikTok</p>
+    </div>
+    <div class="hero-date">
+      <div class="weekday" id="weekday">Wednesday</div>
+      <div class="date" id="date">2026/09/10</div>
+    </div>
+  </header>
+
+  <!-- ── URL ── -->
+  <section class="card url-card">
+    <div class="lcd">
+      <input id="url" type="text" spellcheck="false" autocomplete="off"
+             placeholder="https://www.facebook.com/reel/…">
+    </div>
+    <button class="btn" id="btnPaste" title="從剪貼簿貼上連結">貼上</button>
+  </section>
+
+  <!-- ── options ── -->
+  <section class="card opts-card">
+    <div class="row">
+      <div class="label">下載格式</div>
+      <div class="field">
+        <div class="select" id="fmtSelect">
+          <button class="btn select-btn" id="fmtBtn" type="button">
+            <span id="fmtLabel">MP4 影片・最高畫質</span>
+            <span class="chev"></span>
+          </button>
+          <div class="select-menu" id="fmtMenu"></div>
+        </div>
+        <span class="hint">公開影片・免登入</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">儲存位置</div>
+      <div class="field">
+        <div class="inset path" id="savePath" title=""><span>…</span></div>
+        <button class="btn small" id="btnChange">變更</button>
+        <button class="btn small" id="btnOpen">開啟資料夾</button>
+      </div>
+    </div>
+
+    <div class="row actions">
+      <div class="label"></div>
+      <div class="field">
+        <button class="btn accent" id="btnStart">開始下載</button>
+        <button class="btn" id="btnCancel" disabled>取消</button>
+        <button class="btn" id="btnUpdate">更新下載核心</button>
+      </div>
+    </div>
+
+    <p class="status" id="status">準備就緒，貼上連結後按「開始下載」。</p>
+  </section>
+
+  <!-- ── progress ── -->
+  <section class="progress-block">
+    <div class="progress-label">
+      <span>下載進度 <b id="pct">0</b> %</span>
+      <span class="size" id="size"></span>
+    </div>
+    <div class="track inset"><div class="fill" id="fill"></div></div>
+  </section>
+
+  <!-- ── stats + log ── -->
+  <section class="grid3">
+    <div class="pill">
+      <div class="pill-title">速度<br>Speed</div>
+      <div class="pill-cavity"><span id="speed">—</span></div>
+    </div>
+    <div class="pill">
+      <div class="pill-title">剩餘<br>ETA</div>
+      <div class="pill-cavity"><span id="eta">—</span></div>
+    </div>
+    <div class="card log-card">
+      <div class="log-head">
+        <span class="title">Log · 紀錄</span>
+        <span class="ver" id="ver"></span>
+      </div>
+      <div class="log inset" id="log"></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
