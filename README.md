@@ -26,7 +26,13 @@
 
 ### 打包成免安裝 exe（選用）
 
-雙擊 `build_exe.bat`，完成後在 `dist\VideoDownloader\` 取得可攜版，整個資料夾複製到別台電腦即可使用（打包版無法線上更新核心，請重新打包）。
+- **單檔版**：雙擊 `build_onefile.bat`，產生 `dist\VideoDownloader-portable.exe`（約 130 MB），一個檔案丟到隨身碟或任何 Windows 10/11 電腦雙擊即可，不用裝 Python。每次開啟要先解壓到暫存區，啟動慢個幾秒。
+- **資料夾版**：雙擊 `build_exe.bat`，產生 `dist\VideoDownloader\`，整個資料夾複製到別台電腦使用，開啟速度快。
+
+打包版無法線上升級 yt-dlp（平台改版時請重新打包），但「更新下載核心」仍會自動安裝 deno 到 exe 旁邊的 `bin\`。設定檔 `settings.json` 也會存在 exe 旁邊，方便隨身攜帶。
+
+> 沒有付費程式碼簽章，別台電腦第一次開啟會被 Windows SmartScreen 攔下，按「其他資訊 → 仍要執行」即可。
+> 程式圖示由 `assets\make_icon.py` 產生（需要 Pillow），打包腳本會自動處理。
 
 ## 使用
 
