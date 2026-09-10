@@ -249,9 +249,12 @@ def main() -> None:
     avail_w, avail_h = _work_area_logical()
     width = max(720, min(960, avail_w - 40))
     height = max(620, min(900, avail_h - 60))
+    # 在主螢幕工作區置中（pywebview 會把邏輯座標換算成實體像素；預設的 CenterScreen 在視窗較高時會退回串接位置）
+    x = max(0, (avail_w - width) // 2)
+    y = max(0, (avail_h - height) // 2)
     window = webview.create_window(
         APP_NAME, UI_FILE, js_api=api,
-        width=width, height=height, min_size=(700, 560),
+        width=width, height=height, x=x, y=y, min_size=(700, 560),
         background_color='#e7e4de', text_select=True,
     )
     api._window = window  # noqa: SLF001

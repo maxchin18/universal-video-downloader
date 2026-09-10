@@ -7,6 +7,7 @@ if not exist ".venv\Scripts\python.exe" call run.bat
   --name "VideoDownloader" ^
   --add-data "ui;ui" ^
   --collect-all yt_dlp ^
+  --collect-all yt_dlp_ejs ^
   --collect-all imageio_ffmpeg ^
   app.py
 echo.
